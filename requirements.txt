@@ -1,0 +1,6 @@
+# Core framework has NO third-party runtime dependencies (standard library only).
+# The following are optional, only for running real models or the test suite.
+
+pytest>=7.0            # tests
+# openai>=1.0          # uncomment to use --llm openai:<model>
+# anthropic>=0.30      # uncomment to use --llm anthropic:<model>

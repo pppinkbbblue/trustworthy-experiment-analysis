@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trustworthy-experiment-analysis"
+version = "0.1.0"
+description = "Compute-Validate-Explain: trustworthy, hallucination-resistant LLM-assisted experiment analysis"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Xinyi Shi", email = "shixinyi59@gmail.com" }]
+keywords = ["llm", "hallucination", "experiment-analysis", "ab-testing", "trustworthy-ai"]
+dependencies = []  # core is standard-library only
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.30"]
+test = ["pytest>=7.0"]
+
+[tool.setuptools]
+packages = ["cve"]
