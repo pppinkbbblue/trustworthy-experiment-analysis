@@ -2,7 +2,7 @@
 
 **Xinyi Shi**
 Independent researcher · Seattle, WA
-joypinkblue@gmail.com
+shixinyi59@gmail.com
 
 > Technical report / preprint (not peer-reviewed).
 > Companion open-source framework: https://github.com/pppinkbbblue/trustworthy-experiment-analysis
@@ -222,8 +222,8 @@ We release the full implementation and a benchmark harness
 (https://github.com/pppinkbbblue/trustworthy-experiment-analysis):
 
 - a deterministic compute layer; a synthetic-experiment generator with known
-  ground truth; a provider-agnostic LLM interface (OpenAI, Anthropic, Amazon
-  Bedrock, or a deterministic mock); the validation layer; two pipelines (CVE and
+  ground truth; a provider-agnostic LLM interface (compatible with major hosted
+  model APIs, or a deterministic mock); the validation layer; two pipelines (CVE and
   an LLM-only baseline that both computes and explains); an evaluation module; and
   a unit-test suite.
 
