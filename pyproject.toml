@@ -16,6 +16,7 @@ dependencies = []  # core is standard-library only
 [project.optional-dependencies]
 openai = ["openai>=1.0"]
 anthropic = ["anthropic>=0.30"]
+bedrock = ["boto3>=1.34"]
 test = ["pytest>=7.0"]
 
 [tool.setuptools]

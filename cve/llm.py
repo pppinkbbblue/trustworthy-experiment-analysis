@@ -85,12 +85,49 @@ class AnthropicLLM:
         return "".join(block.text for block in resp.content if hasattr(block, "text"))
 
 
+class BedrockLLM:
+    """Adapter for Amazon Bedrock via the Converse API. Requires `boto3` and
+    AWS credentials in the environment (use a PERSONAL AWS account).
+
+    The credentials come from the standard boto3 chain (env vars, ~/.aws, etc.),
+    so configure a personal profile — never a work/internal account.
+    """
+
+    def __init__(
+        self,
+        model_id: str = "anthropic.claude-3-5-sonnet-20240620-v1:0",
+        region: str = None,
+        temperature: float = 0.0,
+    ):
+        import boto3  # lazy import
+
+        self._client = boto3.client(
+            "bedrock-runtime",
+            region_name=region or os.environ.get("AWS_REGION", "us-east-1"),
+        )
+        self.model_id = model_id
+        self.temperature = temperature
+        self.name = f"bedrock:{model_id}"
+
+    def complete(self, system: str, user: str) -> str:
+        resp = self._client.converse(
+            modelId=self.model_id,
+            system=[{"text": system}],
+            messages=[{"role": "user", "content": [{"text": user}]}],
+            inferenceConfig={"temperature": self.temperature, "maxTokens": 1024},
+        )
+        return resp["output"]["message"]["content"][0]["text"]
+
+
 def get_client(spec: str = "mock") -> LLMClient:
-    """Factory. spec examples: 'mock', 'openai:gpt-4o-mini', 'anthropic:claude-3-5-sonnet-latest'."""
+    """Factory. spec examples: 'mock', 'openai:gpt-4o-mini',
+    'anthropic:claude-3-5-sonnet-latest', 'bedrock:anthropic.claude-3-5-sonnet-20240620-v1:0'."""
     if spec == "mock":
         return MockLLM()
     if spec.startswith("openai:"):
         return OpenAILLM(model=spec.split(":", 1)[1])
     if spec.startswith("anthropic:"):
         return AnthropicLLM(model=spec.split(":", 1)[1])
+    if spec.startswith("bedrock:"):
+        return BedrockLLM(model_id=spec.split(":", 1)[1])
     raise ValueError(f"Unknown LLM spec: {spec}")
