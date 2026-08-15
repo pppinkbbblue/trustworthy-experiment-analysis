@@ -77,8 +77,10 @@ paper/       preprint draft
 
 ## Status
 
-Framework and benchmark harness are complete and tested. Empirical results in
-the paper are filled in from real model runs; see `paper/paper.md`.
+Framework and benchmark harness are complete and tested. The accompanying
+technical report (`paper/paper.md`) describes the method and releases the
+benchmark; it does not include an original empirical study — run the harness
+(above) with a model of your choice to reproduce the metrics.
 
 ## License
 
