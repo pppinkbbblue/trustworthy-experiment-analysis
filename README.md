@@ -2,6 +2,8 @@
 
 **Trustworthy, hallucination-resistant LLM-assisted analysis of experiments.**
 
+📄 Preprint: [10.5281/zenodo.21959899](https://doi.org/10.5281/zenodo.21959899)
+
 Large language models are increasingly used to read and summarize quantitative
 results. They are also prone to producing fluent, confident, and *wrong*
 numbers — which is unacceptable when those numbers drive decisions. This project

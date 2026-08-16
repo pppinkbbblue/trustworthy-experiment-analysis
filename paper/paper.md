@@ -4,7 +4,7 @@
 Independent researcher · Seattle, WA
 shixinyi59@gmail.com
 
-> Technical report / preprint (not peer-reviewed).
+> Technical report / preprint (not peer-reviewed). DOI: https://doi.org/10.5281/zenodo.21959899
 > Companion open-source framework: https://github.com/pppinkbbblue/trustworthy-experiment-analysis
 > This report describes the method and releases a reproducible benchmark harness.
 > It does not report an original empirical study; the harness is provided so the

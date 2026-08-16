@@ -1,5 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
+doi: 10.5281/zenodo.21959899
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21959899
+    description: "Preprint on Zenodo"
 title: "Compute-Validate-Explain (CVE): Trustworthy LLM-assisted experiment analysis"
 abstract: >-
   A framework and open benchmark for enforcing and measuring numerical grounding
